@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const smallSize = 499;
+const smallSize = 700;
 const mediumSize = 1017;
 const largeSize = 1295;
 

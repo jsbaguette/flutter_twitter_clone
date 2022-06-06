@@ -1,6 +1,5 @@
-import 'package:clone_twitter/responsive/screen.dart';
+import 'package:clone_twitter/layouts/responsive_layout.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
 void main() {
