@@ -1,4 +1,5 @@
 import 'package:clone_twitter/layouts/left_layout.dart';
+import 'package:clone_twitter/layouts/main_layout.dart';
 import 'package:flutter/material.dart';
 
 class ResponsiveLayout extends StatelessWidget {
@@ -31,41 +32,43 @@ class ResponsiveLayout extends StatelessWidget {
               children: [
                 if (!shouldHideLefttSideBar)
                   LeftLayout(shouldHideLeftText: shouldHideLeftText),
-                Flexible(
-                  flex: 10,
-                  child: Container(
-                    width: 600,
-                    constraints: BoxConstraints(maxWidth: 600),
-                    decoration: shouldHideLefttSideBar
-                        ? null
-                        : BoxDecoration(
-                            border: Border.symmetric(
-                              vertical: BorderSide(color: Colors.grey),
+                MainLayout(
+                  shouldHideLefttSideBar: shouldHideLefttSideBar,
+                ),
+                if (!shouldHideRightSideBar)
+                  Flexible(
+                    flex: 10,
+                    child: Container(
+                      width: 350,
+                      constraints: BoxConstraints(maxWidth: 600),
+                      child: ListView(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(31, 94, 98, 100),
+                              // color: ,
+                              borderRadius: BorderRadius.circular(16),
                             ),
+                            height: 400,
+                            margin: EdgeInsets.only(bottom: 16),
                           ),
-                    child: ListView(
-                      scrollDirection: Axis.vertical,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
-                          child: Placeholder(),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
-                          child: Placeholder(),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
-                          child: Placeholder(),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
-                          child: Placeholder(),
-                        ),
-                      ],
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(31, 94, 98, 100),
+                              // color: ,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            height: 200,
+                            margin: EdgeInsets.only(bottom: 16),
+                          ),
+                          Text(
+                            "Conditions d’utilisation Politique de Confidentialité Politique relative aux cookies Accessibilité Informations sur les publicités Plus © 2022 Twitter, Inc.",
+                            maxLines: 4,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
               ],
             ),
           ),

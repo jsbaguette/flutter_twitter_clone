@@ -43,10 +43,11 @@ class LeftLayout extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: shouldHideLeftText
-                    ? EdgeInsets.all(0)
-                    : EdgeInsets.only(right: 16),
+              Container(
+                margin: EdgeInsets.only(top: 16),
+                // padding: shouldHideLeftText
+                //     ? EdgeInsets.all(0)
+                //     : EdgeInsets.only(right: 16),
                 child: TextButton(
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.blue,
@@ -55,7 +56,7 @@ class LeftLayout extends StatelessWidget {
                   ),
                   onPressed: () => {},
                   child: Container(
-                    height: 56,
+                    padding: EdgeInsets.all(10),
                     alignment: Alignment.center,
                     child: shouldHideLeftText
                         ? FaIcon(
