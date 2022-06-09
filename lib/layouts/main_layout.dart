@@ -12,13 +12,7 @@ class MainLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Flexible(
-      flex: 10,
       child: Container(
-        margin: shouldHideLefttSideBar
-            ? EdgeInsets.all(0)
-            : EdgeInsets.only(right: 16),
-        width: 600,
-        constraints: BoxConstraints(maxWidth: 600),
         decoration: shouldHideLefttSideBar
             ? null
             : BoxDecoration(
@@ -26,144 +20,172 @@ class MainLayout extends StatelessWidget {
                   vertical: BorderSide(color: Colors.grey),
                 ),
               ),
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          children: <Widget>[
+        constraints: BoxConstraints(maxWidth: 600),
+        child: Column(
+          children: [
             Container(
-              padding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: Container(
-                      child: CircleAvatar(backgroundColor: Colors.black),
-                    ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(right: 16),
+                        width: 32,
+                        height: 32,
+                        child: CircleAvatar(backgroundColor: Colors.black),
+                      ),
+                      Text("Accueil"),
+                    ],
                   ),
-                  Expanded(
-                    flex: 8,
-                    child: Column(
-                      children: [
-                        Row(
+                  FaIcon(FontAwesomeIcons.info, size: 22),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Container(
+                // margin: shouldHideLefttSideBar
+                //     ? EdgeInsets.all(0)
+                //     : EdgeInsets.only(right: 16),
+                child: ListView(
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    Container(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+                      decoration: BoxDecoration(
+                        border: Border(bottom: BorderSide(color: Colors.grey)),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Show 438 tweets",
+                          style: TextStyle(color: Colors.blue),
+                        ),
+                      ),
+                    ),
+                    for (int i = 0; i < 7; i++) ...[
+                      Container(
+                        padding: EdgeInsets.fromLTRB(16, 10, 16, 10),
+                        decoration: BoxDecoration(
+                          border:
+                              Border(bottom: BorderSide(color: Colors.grey)),
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            CircleAvatar(backgroundColor: Colors.black),
                             Expanded(
-                              child: Container(
-                                alignment: Alignment.centerLeft,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 12),
+                                child: Column(
                                   children: [
+                                    Row(
+                                      children: [
+                                        Expanded(
+                                          child: Container(
+                                            alignment: Alignment.centerLeft,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Container(
+                                                  child: Text(
+                                                    "florent giraud",
+                                                    style:
+                                                        TextStyle(fontSize: 15),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 4),
+                                                  child: Text(
+                                                    "@jsbaguette",
+                                                    style:
+                                                        TextStyle(fontSize: 15),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 4),
+                                                  child: Text(
+                                                    "- 2h",
+                                                    style:
+                                                        TextStyle(fontSize: 15),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          child: Align(
+                                            alignment: Alignment.centerRight,
+                                            child: FaIcon(
+                                              FontAwesomeIcons.ellipsis,
+                                              size: 16,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                     Container(
+                                      margin:
+                                          EdgeInsets.symmetric(vertical: 10),
                                       child: Text(
-                                        "florent giraud",
-                                        style: TextStyle(fontSize: 15),
+                                        "This is super open ended, but what are you all currently struggling with? Doesn't have to be code related. We're more than our jobs.",
+                                      ),
+                                    ),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(
+                                          20), // Image border
+                                      child: Image.asset(
+                                        "assets/images/bg.jpg",
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
                                     Container(
-                                      padding:
-                                          EdgeInsets.symmetric(horizontal: 4),
-                                      child: Text(
-                                        "@jsbaguette",
-                                        style: TextStyle(fontSize: 15),
-                                      ),
-                                    ),
-                                    Container(
-                                      padding:
-                                          EdgeInsets.symmetric(horizontal: 4),
-                                      child: Text(
-                                        "- 2h",
-                                        style: TextStyle(fontSize: 15),
+                                      margin:
+                                          EdgeInsets.symmetric(vertical: 12),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          FaIcon(
+                                            FontAwesomeIcons.comment,
+                                            color: Colors.grey,
+                                            size: 18,
+                                          ),
+                                          FaIcon(
+                                            FontAwesomeIcons.retweet,
+                                            color: Colors.grey,
+                                            size: 18,
+                                          ),
+                                          FaIcon(
+                                            FontAwesomeIcons.heart,
+                                            color: Colors.grey,
+                                            size: 18,
+                                          ),
+                                          FaIcon(
+                                            FontAwesomeIcons.arrowUpFromBracket,
+                                            color: Colors.grey,
+                                            size: 18,
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              child: Align(
-                                alignment: Alignment.centerRight,
-                                child: FaIcon(FontAwesomeIcons.ellipsis),
-                              ),
-                            ),
+                            )
                           ],
                         ),
-                        Text(
-                            "This is super open ended, but what are you all currently struggling with? Doesn't have to be code related. We're more than our jobs."),
-                        Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(28)),
-                          ),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                "assets/images/bg.jpg",
-                                fit: BoxFit.cover,
-                              ),
-                              // Image.network(
-                              //   "https://picsum.photos/250?image=9",
-                              //   // "https://unsplash.com/photos/NRQV-hBF10M",
-                              //   fit: BoxFit.cover,
-                              // ),
-                              Container(
-                                padding: EdgeInsets.all(16),
-                                width: double.infinity,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text("Title"),
-                                    Text("subtitle"),
-                                    Text("small description"),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                  // Container(
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.start,
-                  //     children: [
-                  //       Expanded(
-                  //         flex: 8,
-                  //         child: Container(
-                  //           alignment: Alignment.centerLeft,
-                  //           child: Row(
-                  //             mainAxisAlignment: MainAxisAlignment.start,
-                  //             children: [
-                  //               Text(
-                  //                 "florent giraud",
-                  //                 style: TextStyle(fontSize: 15),
-                  //               ),
-                  //               Padding(
-                  //                 padding: EdgeInsets.symmetric(horizontal: 4),
-                  //                 child: Text(
-                  //                   "@jsbaguette",
-                  //                   style: TextStyle(fontSize: 15),
-                  //                 ),
-                  //               ),
-                  //               Padding(
-                  //                 padding: EdgeInsets.symmetric(horizontal: 4),
-                  //                 child: Text(
-                  //                   "- 2h",
-                  //                   style: TextStyle(fontSize: 15),
-                  //                 ),
-                  //               ),
-                  //             ],
-                  //           ),
-                  //         ),
-                  //       ),
-                  //       Flexible(
-                  //         child: Align(
-                  //           alignment: Alignment.centerRight,
-                  //           child: FaIcon(FontAwesomeIcons.ellipsis),
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                ],
+                      ),
+                    ]
+                  ],
+                ),
               ),
             ),
           ],
