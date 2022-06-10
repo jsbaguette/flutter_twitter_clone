@@ -1,19 +1,10 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         // {
         //     "name": "clone_twitter",
         //     "request": "launch",
         //     "type": "dart"
-        // },
-        // {
-        //     "name": "real_tablet",
-        //     "request": "launch",
-        //     "type": "dart",
-        //     "deviceId": "00008103-000A51CC1A31001E"
         // },
         // {
         //     "name": "ios",
