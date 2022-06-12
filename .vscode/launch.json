@@ -2,27 +2,22 @@
     "version": "0.2.0",
     "configurations": [
         // {
-        //     "name": "clone_twitter",
-        //     "request": "launch",
-        //     "type": "dart"
-        // },
-        // {
         //     "name": "ios",
         //     "request": "launch",
         //     "type": "dart",
         //     "deviceId": "macos"
         // },
         {
-            "name": "tablet",
+            "name": "ios-tablet",
             "request": "launch",
             "type": "dart",
             "deviceId": "1310738D-634D-456B-B554-22B2805E584B"
         },
         {
-            "name": "mobile",
+            "name": "ios-mobile",
             "request": "launch",
             "type": "dart",
-            "deviceId": "429D2EF5-E414-41C5-B7A7-CA5D1FF474AA"
+            "deviceId": "7DA9437E-0146-48E2-87D1-EA16B53C63CB"
         },
         {
             "name": "web",
@@ -30,13 +25,24 @@
             "type": "dart",
             "deviceId": "chrome"
         },
+        {
+            "name": "android-phone",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "emulator-5554"
+        },
+        {
+            "name": "android-tablet",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "emulator-5556"
+        },
     ],
     "compounds": [
         {
             "name": "all devices",
             // "ios",
-            // "configurations": ["mob"ile", "tablet",  "web"]
-            "configurations": ["mobile", "tablet", "web"]
+            "configurations": ["ios-mobile", "ios-tablet", "web", "android-phone", "android-tablet"]
         }
     ]
 }
