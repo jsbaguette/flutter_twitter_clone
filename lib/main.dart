@@ -1,6 +1,7 @@
 import 'package:clone_twitter/layouts/responsive_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,6 +11,7 @@ void main() {
       DeviceOrientation.portraitUp,
     ],
   );
+  setPathUrlStrategy();
   runApp(MyApp());
 }
 
